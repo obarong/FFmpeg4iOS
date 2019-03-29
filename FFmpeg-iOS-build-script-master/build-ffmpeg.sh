@@ -14,7 +14,7 @@ SCRATCH="scratch"
 THIN=`pwd`/"thin"
 
 # absolute path to x264 library
-#X264=`pwd`/fat-x264
+X264=`pwd`/fat-x264
 
 #FDK_AAC=`pwd`/../fdk-aac-build-script-for-iOS/fdk-aac-ios
 

@@ -30,6 +30,7 @@
 		5631C5A4224CB2AC00333FEA /* ffmpeg.c in Sources */ = {isa = PBXBuildFile; fileRef = 5631C59C224CB2AB00333FEA /* ffmpeg.c */; };
 		5631C5A5224CB2AC00333FEA /* ffmpeg_videotoolbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 5631C59D224CB2AB00333FEA /* ffmpeg_videotoolbox.c */; };
 		5631C5B7224DF2E400333FEA /* libpostproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5631C5B6224DF2E400333FEA /* libpostproc.a */; };
+		5631C5BE224E1C0B00333FEA /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5631C5BD224E1C0A00333FEA /* libx264.a */; };
 		56BAD52A2249CA62003F3C08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BAD5292249CA62003F3C08 /* AppDelegate.m */; };
 		56BAD52D2249CA62003F3C08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BAD52C2249CA62003F3C08 /* ViewController.m */; };
 		56BAD5302249CA62003F3C08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56BAD52E2249CA62003F3C08 /* Main.storyboard */; };
@@ -231,6 +232,9 @@
 		5631C59C224CB2AB00333FEA /* ffmpeg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffmpeg.c; sourceTree = "<group>"; };
 		5631C59D224CB2AB00333FEA /* ffmpeg_videotoolbox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffmpeg_videotoolbox.c; sourceTree = "<group>"; };
 		5631C5B6224DF2E400333FEA /* libpostproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpostproc.a; sourceTree = "<group>"; };
+		5631C5BA224E1C0A00333FEA /* x264_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264_config.h; sourceTree = "<group>"; };
+		5631C5BB224E1C0A00333FEA /* x264.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264.h; sourceTree = "<group>"; };
+		5631C5BD224E1C0A00333FEA /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
 		56BAD5252249CA62003F3C08 /* FFmpeg4iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFmpeg4iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56BAD5282249CA62003F3C08 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		56BAD5292249CA62003F3C08 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 			files = (
 				5631C525224B88E900333FEA /* AudioToolbox.framework in Frameworks */,
 				5631C5B7224DF2E400333FEA /* libpostproc.a in Frameworks */,
+				5631C5BE224E1C0B00333FEA /* libx264.a in Frameworks */,
 				5631C523224B88B400333FEA /* libiconv.tbd in Frameworks */,
 				5631C521224B88A600333FEA /* libbz2.tbd in Frameworks */,
 				5631C51F224B887F00333FEA /* libz.tbd in Frameworks */,
@@ -746,6 +751,32 @@
 			path = fftools;
 			sourceTree = "<group>";
 		};
+		5631C5B8224E1C0A00333FEA /* x264-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5631C5B9224E1C0A00333FEA /* include */,
+				5631C5BC224E1C0A00333FEA /* lib */,
+			);
+			path = "x264-iOS";
+			sourceTree = "<group>";
+		};
+		5631C5B9224E1C0A00333FEA /* include */ = {
+			isa = PBXGroup;
+			children = (
+				5631C5BA224E1C0A00333FEA /* x264_config.h */,
+				5631C5BB224E1C0A00333FEA /* x264.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		5631C5BC224E1C0A00333FEA /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				5631C5BD224E1C0A00333FEA /* libx264.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		56BAD51C2249CA62003F3C08 = {
 			isa = PBXGroup;
 			children = (
@@ -766,6 +797,7 @@
 		56BAD5272249CA62003F3C08 /* FFmpeg4iOS */ = {
 			isa = PBXGroup;
 			children = (
+				5631C5B8224E1C0A00333FEA /* x264-iOS */,
 				5631C47C224B65CC00333FEA /* FFmpeg-iOS */,
 				56BAD5282249CA62003F3C08 /* AppDelegate.h */,
 				56BAD5292249CA62003F3C08 /* AppDelegate.m */,

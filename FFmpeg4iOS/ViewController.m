@@ -29,16 +29,18 @@ extern "C" {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    av_register_all();
-//    NSLog(@"version=%d\n", avcodec_version());
+    av_register_all();
+    NSLog(@"version=%d\n", avcodec_version());
     
     //获取文件位置
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-//    NSString *string =@"ffmpeg -i rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov -vcodec copy -t 5 ";
+    
+//    NSString *vidPath = @"rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov";
     NSString *vidPath = [NSString stringWithFormat:@"%@/testfile.mpg", docPath];
-    NSString *outPath = [NSString stringWithFormat:@"%@/out.mp4", docPath];
-    NSString *cmd=[NSString stringWithFormat:@"ffmpeg -y -i rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov -c:v copy -t 5 %@", outPath];
-//    NSString *cmd=[NSString stringWithFormat:@"ffmpeg -y -i %@ -c:v copy -t 5 %@", vidPath, outPath];
+    
+    NSString *outPath = [NSString stringWithFormat:@"%@/h264.mp4", docPath];
+    
+    NSString *cmd=[NSString stringWithFormat:@"ffmpeg -y -i %@ -c:v libx264 %@", vidPath, outPath];
     NSArray *array = [cmd componentsSeparatedByString:@" "];
     NSLog(@"array:%@",array);
     
