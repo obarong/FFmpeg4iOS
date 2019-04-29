@@ -35,12 +35,14 @@ extern "C" {
     //获取文件位置
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     
-//    NSString *vidPath = @"rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov";
-    NSString *vidPath = [NSString stringWithFormat:@"%@/testfile.mpg", docPath];
+    NSString *vidPath = @"rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov";
+//    NSString *vidPath = [NSString stringWithFormat:@"%@/testfile.mpg", docPath];
     
-    NSString *outPath = [NSString stringWithFormat:@"%@/h264.mp4", docPath];
+//    NSString *outPath = [NSString stringWithFormat:@"%@/h264.mp4", docPath];
+    NSString *outPath = [NSString stringWithFormat:@"%@/a.mp3", docPath];
     
-    NSString *cmd=[NSString stringWithFormat:@"ffmpeg -y -i %@ -c:v libx264 %@", vidPath, outPath];
+//    NSString *cmd=[NSString stringWithFormat:@"ffmpeg -y -i %@ -c:v libx264 -t 5 %@", vidPath, outPath];
+    NSString *cmd=[NSString stringWithFormat:@"ffmpeg -y -i %@ -vn -f mp3 -t 5 %@", vidPath, outPath];
     NSArray *array = [cmd componentsSeparatedByString:@" "];
     NSLog(@"array:%@",array);
     

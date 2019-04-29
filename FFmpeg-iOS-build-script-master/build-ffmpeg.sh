@@ -18,6 +18,8 @@ X264=`pwd`/fat-x264
 
 #FDK_AAC=`pwd`/../fdk-aac-build-script-for-iOS/fdk-aac-ios
 
+LAME=`pwd`/fat-lame
+
 CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs \
                  --disable-doc --enable-pic"
 
@@ -28,7 +30,12 @@ fi
 
 if [ "$FDK_AAC" ]
 then
-	CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-libfdk-aac --enable-nonfree"
+    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-libfdk-aac --enable-nonfree"
+fi
+
+if [ "$LAME" ]
+then
+    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-libmp3lame"
 fi
 
 # avresample
@@ -131,6 +138,11 @@ then
 			CFLAGS="$CFLAGS -I$FDK_AAC/include"
 			LDFLAGS="$LDFLAGS -L$FDK_AAC/lib"
 		fi
+        if [ "$LAME" ]
+        then
+            CFLAGS="$CFLAGS -I$LAME/include"
+            LDFLAGS="$LDFLAGS -L$LAME/lib"
+        fi
 
 		TMPDIR=${TMPDIR/%\/} $CWD/$SOURCE/configure \
 		    --target-os=darwin \
